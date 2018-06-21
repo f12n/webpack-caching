@@ -47,3 +47,14 @@ Preload directive has a bunch of differences compared to prefetch:
 * A preloaded chunk should be instantly requested by the parent chunk. A prefetched chunk can be used anytime in the future.
 * Browser support is different.
 
+### Bundle Analysis
+Once you start splitting your code, it can be useful to analyze the output to check where modules have ended up. The official analyze tool is a good place to start. There are some other community-supported options out there as well:
+
+[webpack-chart](https://alexkuz.github.io/webpack-chart/): Interactive pie chart for webpack stats.
+[webpack-visualizer](https://chrisbateman.github.io/webpack-visualizer/): Visualize and analyze your bundles to see which modules are taking up space and which might be duplicates.
+[webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer): A plugin and CLI utility that represents bundle content as convenient interactive zoomable treemap.
+
+Further Reading (TODO)
+[<link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
+[Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
+[Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
