@@ -27,6 +27,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Caching'
         }),
+        new webpack.HashedModuleIdsPlugin(),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'manifest'
         // })

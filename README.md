@@ -19,5 +19,31 @@ TODO: extract manifest to it bundle
 
 extract third-party libraries  also doesn't work in that(the api doc refered) way
 
+# Module Identifiers
 
+we can see that all three have. This is because each module.id is incremented based on resolving order by default. Meaning when the order of resolving is changed, the IDs will be changed as well. So, to recap:
 
+* The main bundle changed because of its new content.
+* The vendor bundle changed because its module.id was changed.
+* And, the manifest bundle changed because it now contains a reference to a new module.
+
+The first and last are expected -- it's the vendor hash we want to fix. Luckily, there are two plugins we can use to resolve this issue. The first is the [NamedModulesPlugin](https://webpack.js.org/plugins/named-modules-plugin), which will use the path to the module rather than a numerical identifier. While this plugin is useful during development for more readable output, it does take a bit longer to run. The second option is the [HashedModuleIdsPlugin](https://webpack.js.org/plugins/hashed-module-ids-plugin), which is recommended for production builds:
+
+run the build and after commented in index :
+// import './chartComponent';
+// import './loginButton';
+
+run the build. 
+Now, despite any new local dependencies, our vendor hash should stay consistent between builds:
+
+# Conclusion
+
+Caching gets messy. Plain and simple. However the walk-through above should give you a running start to deploying consistent, cachable assets. See the Further Reading section below to learn more.
+
+# Further Reading(TODO)
+* [Predictable Long Term Caching](https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31)
+* [Long Term Caching of Static Assets](https://codeburst.io/long-term-caching-of-static-assets-with-webpack-1ecb139adb95?gi=9e32667ae5c5#.vtwnssps4)
+* [Webpack & Caching](https://gist.github.com/sokra/ff1b0290282bfa2c037bdb6dcca1a7aa)
+* [Advanced Webpack Presentation](https://presentations.survivejs.com/advanced-webpack/)
+* [Issue 1315](https://github.com/webpack/webpack/issues/1315)
+* [Issue 652](https://github.com/webpack/webpack.js.org/issues/652)
