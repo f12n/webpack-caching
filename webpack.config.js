@@ -11,11 +11,11 @@ module.exports = {
             // another: './src/another.js'
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[chunkhash].js',
 
         // determines the name of non-entry chunk files, For more information:
         // https://webpack.js.org/configuration/output/#output-chunkfilename
-        chunkFilename: '[name].bundle.js',
+        // chunkFilename: '[name].[chunkhash].js',
         // non entry chunk will have [name] equals vendors~lodash, 
         // the full name: vendors~lodash.bundle.js
         //      if use [id] here means : vendors~lodash
@@ -24,7 +24,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Code Splitting'
+            title: 'Caching'
         })
     ],
     /* optimization: {

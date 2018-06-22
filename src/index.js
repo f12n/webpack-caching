@@ -1,5 +1,5 @@
-import './chartComponent';
-import './loginButton';
+// import './chartComponent';
+// import './loginButton';
 // import _ from 'lodash';
 
 async function getComponent() {
